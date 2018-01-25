@@ -1,0 +1,66 @@
+
+<div *ngIf="marketDetails">
+    <h2><span>Market Details</span> {{marketDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>High Price</span></dt>
+        <dd>
+            <span>{{marketDetails.highPrice}}</span>
+        </dd>
+        <dt><span>Low Price</span></dt>
+        <dd>
+            <span>{{marketDetails.lowPrice}}</span>
+        </dd>
+        <dt><span>Last Price</span></dt>
+        <dd>
+            <span>{{marketDetails.lastPrice}}</span>
+        </dd>
+        <dt><span>Ask Price</span></dt>
+        <dd>
+            <span>{{marketDetails.askPrice}}</span>
+        </dd>
+        <dt><span>Bid Price</span></dt>
+        <dd>
+            <span>{{marketDetails.bidPrice}}</span>
+        </dd>
+        <dt><span>Volume 24 Hours</span></dt>
+        <dd>
+            <span>{{marketDetails.volume24hours}}</span>
+        </dd>
+        <dt><span>Time Stamp</span></dt>
+        <dd>
+            <span>{{marketDetails.timeStamp | date:'medium'}}</span>
+        </dd>
+        <dt><span>Is Active</span></dt>
+        <dd>
+            <span>{{marketDetails.isActive}}</span>
+        </dd>
+        <dt><span>Exchange</span></dt>
+        <dd>
+            <div *ngIf="marketDetails.exchangeId">
+                <a [routerLink]="['/exchange-my-suffix', marketDetails.exchangeId]">{{marketDetails.exchangeId}}</a>
+            </div>
+        </dd>
+        <dt><span>Market</span></dt>
+        <dd>
+            <div *ngIf="marketDetails.marketId">
+                <a [routerLink]="['/market-my-suffix', marketDetails.marketId]">{{marketDetails.marketId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'market-details-my-suffix/'+ marketDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

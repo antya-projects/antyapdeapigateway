@@ -1,0 +1,64 @@
+
+<div *ngIf="market">
+    <h2><span>Market</span> {{market.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Currency Pair Code</span></dt>
+        <dd>
+            <span>{{market.currencyPairCode}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{market.name}}</span>
+        </dd>
+        <dt><span>Market Currency</span></dt>
+        <dd>
+            <span>{{market.marketCurrency}}</span>
+        </dd>
+        <dt><span>Base Currency</span></dt>
+        <dd>
+            <span>{{market.baseCurrency}}</span>
+        </dd>
+        <dt><span>Min Trade Size</span></dt>
+        <dd>
+            <span>{{market.minTradeSize}}</span>
+        </dd>
+        <dt><span>Max Trade Size</span></dt>
+        <dd>
+            <span>{{market.maxTradeSize}}</span>
+        </dd>
+        <dt><span>Manual Trade Qty</span></dt>
+        <dd>
+            <span>{{market.manualTradeQty}}</span>
+        </dd>
+        <dt><span>Is Active</span></dt>
+        <dd>
+            <span>{{market.isActive}}</span>
+        </dd>
+        <dt><span>Commission</span></dt>
+        <dd>
+            <span>{{market.commission}}</span>
+        </dd>
+        <dt><span>Exchange</span></dt>
+        <dd>
+            <div *ngIf="market.exchangeId">
+                <a [routerLink]="['/exchange-my-suffix', market.exchangeId]">{{market.exchangeId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'market-my-suffix/'+ market.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
