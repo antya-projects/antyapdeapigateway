@@ -5,6 +5,16 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125095143_added_entity_Coin.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125095144_added_entity_CoinAttributes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125095145_added_entity_Market.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125095146_added_entity_MarketPrice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125095147_added_entity_MarketDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125095148_added_entity_Exchange.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180125095144_added_entity_constraints_CoinAttributes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125095145_added_entity_constraints_Market.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125095146_added_entity_constraints_MarketPrice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180125095147_added_entity_constraints_MarketDetails.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

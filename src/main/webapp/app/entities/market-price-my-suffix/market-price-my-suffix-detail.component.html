@@ -1,0 +1,42 @@
+
+<div *ngIf="marketPrice">
+    <h2><span>Market Price</span> {{marketPrice.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Current Price</span></dt>
+        <dd>
+            <span>{{marketPrice.currentPrice}}</span>
+        </dd>
+        <dt><span>Time Stamp</span></dt>
+        <dd>
+            <span>{{marketPrice.timeStamp | date:'medium'}}</span>
+        </dd>
+        <dt><span>Exchange</span></dt>
+        <dd>
+            <div *ngIf="marketPrice.exchangeId">
+                <a [routerLink]="['/exchange-my-suffix', marketPrice.exchangeId]">{{marketPrice.exchangeId}}</a>
+            </div>
+        </dd>
+        <dt><span>Market</span></dt>
+        <dd>
+            <div *ngIf="marketPrice.marketId">
+                <a [routerLink]="['/market-my-suffix', marketPrice.marketId]">{{marketPrice.marketId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'market-price-my-suffix/'+ marketPrice.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
